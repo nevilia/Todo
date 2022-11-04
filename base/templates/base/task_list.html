@@ -14,7 +14,7 @@
         <th>Items</th>
         <th></th>
     </tr>
-    {% for task in object_list %}
+    {% for task in tasks %}
     <!-- because classbased view ListView has 'context_object_name' field which overrides default name of 'object_list' -->
     <!-- so it will loop in a list of all objects of the class in views, which comes from Task model. -->
     <tr>
