@@ -1,0 +1,21 @@
+<h1>My TODO List</h1>
+<a href="{% url 'task-create' %}"></a>
+
+<table>
+    <tr>
+        <th>Items</th>
+        <th></th>
+    </tr>
+    {% for task in object_list %}
+    <!-- because classbased view ListView has 'context_object_name' field which overrides default name of 'object_list' -->
+    <!-- so it will loop in a list of all objects of the class in views, which comes from Task model. -->
+    <tr>
+        <td>{{task.title}}</td>
+        <td><a href="{% url 'task' task.id %}">View</a></td>
+        <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+        <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+    </tr>
+    {% empty %} 
+        <h3>No items in list</h3>
+    {% endfor %}
+</table>
